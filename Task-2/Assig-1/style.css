@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f2f2f2;
+}
+
+main{
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+
+aside{
+    width:10%;
+    height:100%;
+    padding:25px 15px;
+    display:flex;
+    flex-direction:column;
+    gap: 55%;
+    margin-left: 50px;
+}
+
+.logo{
+    font-size:60px;
+    color:#5b0b0b;
+    font-weight:700;
+}
+
+.menu h3{
+    font-size:16px;
+    font-weight:400;
+    text-decoration:underline;
+    color:#5b0b0b;
+}
+
+.container{
+    width:90%;
+    height:100vh;
+    padding:25px;
+    margin-left:5%;
+}
+
+.text h1{
+    font-size:52px;
+    font-weight:300;
+    line-height:48px;
+    color:#5b0b0b;
+}
+
+.highlight{
+    color:#b7aaaa;
+    margin-left:150px;
+}
+
+.next{
+    margin-left:150px;
+}
+
+.img{
+    width:80px;
+    height:35px;
+    display:inline-block;
+    border-radius:50px;
+    background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500");
+    background-size:cover;
+    background-position:center;
+    margin:0 10px;
+}
+
+.para{
+    width:220px;
+    margin-left:150px;
+    margin-top:10px;
+}
+
+.para p{
+    font-size:11px;
+    line-height:16px;
+    color:#666;
+}
+
+.images{
+    margin-top:20px;
+    margin-left:150px;
+}
+
+.card{
+    width:180px;
+    height:210px;
+    border-radius:18px;
+    display:inline-block;
+    margin-right:12px;
+    background-size:cover;
+    background-position:center;
+}
+
+.card1{
+    background-image:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600");
+}
+
+.card2{
+    background-image:url("https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600");
+}
+
+.card3{
+    background-image:url("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600");
+}
+
+.growth{
+  width: fit-content;
+  margin-left: 10%;
+ margin-top: 50px;
+  /* background-color: #a42525; */
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+   
+}
+
+.growth h1{
+    font-size:50px;
+    line-height:46px;
+    font-weight:300;
+    color:#5b0b0b;
+    text-align: center
+}
+
+.growth span{
+    color:#b7aaaa;
+}
+
+.growth p{
+    width:380px;
+    font-size:11px;
+    line-height:16px;
+    color:#666;
+    text-align: center;
+}
