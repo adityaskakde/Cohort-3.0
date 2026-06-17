@@ -1,0 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Clash Display", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e8e2e2;
+
+  display: grid;
+  grid-template-columns: 80px 1fr;
+
+  overflow: hidden;
+}
+
+section.right {
+  min-height: 0;
+  background: #f6f6f6;
+
+  padding: 25px;
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 1.7fr 1.3fr;
+
+  gap: 25px;
+}
+
+.profile {
+  grid-row: 1/4;
+  grid-column: 1;
+
+  background: #8786e8;
+  border-radius: 28px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* top left cut */
+.profile::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 140px;
+  height: 70px;
+
+  background: #f6f6f6;
+
+  border-bottom-right-radius: 40px;
+}
+
+.about {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  z-index: 5;
+}
+
+.about h3 {
+  font-size: 18px;
+  color: #111;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+  background: #e3a8ff;
+
+  position: absolute;
+
+  top: 60px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.circle::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -12px;
+
+  border: 8px solid white;
+
+  border-radius: 50%;
+}
+
+.profile img {
+  width: 280px;
+  height: 300px;
+
+  position: absolute;
+
+  top: 40px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  filter: grayscale(1);
+
+  border-radius: 50%;
+
+  z-index: 2;
+}
+
+.text {
+  position: absolute;
+
+  left: 30px;
+
+  bottom: 150px;
+
+  z-index: 3;
+}
+
+.text h3 {
+  font-size: 45px;
+
+  font-weight: 300;
+
+  color: #efc8ff;
+}
+
+.text h1 {
+  font-size: 50px;
+
+  line-height: 0.9;
+
+  color: white;
+}
+
+.text p {
+  margin-top: 15px;
+
+  color: white;
+
+  font-size: 15px;
+}
+
+.logo-1 {
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  width: 120px;
+
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: black;
+
+  border: 5px solid #726eff;
+}
+.logo-1 i {
+  font-size: 80px;
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+}
+.mail {
+  margin-top: 20px;
+
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+
+  padding-bottom: 10px;
+
+  border-bottom: 3px dashed #d7b8f8;
+}
+
+.mail p {
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+}
+
+.mail i {
+  font-size: 22px;
+  color: white;
+}
+.portfolio {
+  grid-column: 2/5;
+  grid-row: 1;
+  padding: 20px 10px;
+  position: relative;
+}
+
+.portfolio h1 {
+  font-size: 160px;
+  line-height: 0.9;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  color: rgb(8, 8, 8);
+}
+.portfolio h1 span {
+  position: absolute;
+  font-size: 30px;
+  color: #0e0e0e;
+  top: 20%;
+}
+
+.video {
+  background: rgb(84, 84, 158);
+  grid-column: 2/4;
+  grid-row: 2;
+  background-image: url("https://cdng.europosters.eu/pod_public/1300/108887.jpg");
+  background-position: center 10%;
+  background-size: cover;
+  border-radius: 28px;
+}
+
+.project {
+  grid-column: 4;
+  grid-row: 2;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+}
+.top {
+  width: 100%;
+  height: 50%;
+  border-top-right-radius: 28px;
+  border-top-left-radius: 28px;
+  background: #a9d9d5;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.top h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+.top h3 {
+  font-weight: 400;
+  color: #2a292b;
+}
+.top .pr {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.bottom {
+  width: 100%;
+  height: 50%;
+  background-color: #726eff;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.bottom h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+.bottom h3 {
+  font-weight: 400;
+  color: #2a292b;
+}
+.bottom .bt {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.client {
+  background: #585858;
+  grid-column: 2;
+  grid-row: 3;
+  position: relative;
+
+  border-radius: 28px;
+}
+.client .arrow {
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  right: 8%;
+  top: 5%;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+.apple {
+  font-size: 50px;
+  color: white;
+}
+.icons h3 {
+  color: white;
+  font-weight: 400;
+}
+.logo {
+  background: #8e55d0;
+  grid-column: 3/5;
+  grid-row: 3;
+  border-radius: 28px;
+  display: none;
+}
+.award {
+  background: #000000;
+  grid-column: 3/5;
+  grid-row: 3;
+  border-radius: 28px;
+
+  display: flex;
+}
+.left {
+  width: 50%;
+  height: 100%;
+  background: #000000;
+
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+.left img {
+  width: 170px;
+  height: 200px;
+  margin-left: 40px;
+}
+.right-1 {
+  width: 50%;
+  height: 100%;
+  background: #fec265;
+  border-radius: 28px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.right-1 h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+.right-1 h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #292727;
+}
+.right-1 .r-1 {
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+aside {
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+}
+.menu {
+  height: 70%;
+  width: 100%;
+  margin-top: 180px;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+aside h4 {
+  font-size: 15px;
+  color: #292727;
+  font-weight: 400;
+  rotate: -90deg;
+}
