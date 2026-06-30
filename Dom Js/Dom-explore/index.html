@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOM Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <h2>DOM Explorer</h2>
+        </div>
+
+        <div class="search">
+
+            <i class="ri-search-line"></i>
+
+            <input
+            type="text"
+            placeholder="Search..."
+            >
+
+        </div>
+
+        <div class="nav-right">
+
+            <button class="theme-btn">
+                <i class="ri-moon-line"></i>
+            </button>
+
+            <button class="notify-btn">
+                <i class="ri-notification-3-line"></i>
+            </button>
+
+            <div class="profile">
+                AK
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= BODY ================= -->
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <nav>
+
+                <a class="active">
+                    <i class="ri-home-4-line"></i>
+                    <span>Workspace</span>
+                </a>
+
+                <a>
+                    <i class="ri-task-line"></i>
+                    <span>Tasks</span>
+                </a>
+
+                <a>
+                    <i class="ri-code-box-line"></i>
+                    <span>Inspector</span>
+                </a>
+
+                <a>
+                    <i class="ri-flow-chart"></i>
+                    <span>Rendering</span>
+                </a>
+
+                <a>
+                    <i class="ri-git-branch-line"></i>
+                    <span>Events</span>
+                </a>
+
+                <a>
+                    <i class="ri-terminal-box-line"></i>
+                    <span>Console</span>
+                </a>
+
+                <a>
+                    <i class="ri-settings-3-line"></i>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- Workspace -->
+
+        <main class="workspace">
+
+            <div class="placeholder">
+
+                <i class="ri-code-s-slash-line"></i>
+
+                <h1>DOM Explorer</h1>
+
+                <p>
+                    Select a module from the sidebar to begin exploring.
+                </p>
+
+            </div>
+
+        </main>
+
+        <!-- Inspector -->
+
+        <aside class="inspector">
+
+            <h3>Inspector</h3>
+
+            <div class="card">
+                <p>Selected Element</p>
+            </div>
+
+            <div class="card">
+                <p>Attributes</p>
+            </div>
+
+            <div class="card">
+                <p>Properties</p>
+            </div>
+
+            <div class="card">
+                <p>Dataset</p>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- ================= CONSOLE ================= -->
+
+    <footer class="console">
+
+        <div class="console-header">
+            <h4>Activity Log</h4>
+        </div>
+
+        <div class="console-body">
+
+            <p>Application Initialized...</p>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
