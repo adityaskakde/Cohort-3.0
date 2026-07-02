@@ -1,168 +1,451 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DOM Explorer</title>
+    <title>Paper DOM Explorer</title>
 
     <link rel="stylesheet" href="style.css">
-
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
-    rel="stylesheet"
-    />
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 
+
+<div id="deleteModal" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Delete Task?</h2>
+
+        <p>This action cannot be undone.</p>
+
+        <div class="modal-buttons">
+
+            <button id="cancelDelete">Cancel</button>
+
+            <button id="confirmDelete">Delete</button>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="toast"></div>
 <body>
 
-<div class="app">
+<div class="window">
 
-    <!-- ================= NAVBAR ================= -->
 
-    <header class="navbar">
+    <div class="title-bar">
 
         <div class="logo">
-            <h2>DOM Explorer</h2>
+            PAPER_SYS v1.0
         </div>
 
-        <div class="search">
+        <div class="window-buttons">
 
-            <i class="ri-search-line"></i>
+   
+                            <span>—</span>
 
-            <input
-            type="text"
-            placeholder="Search..."
-            >
+                            <span>□</span>
 
-        </div>
-
-        <div class="nav-right">
-
-            <button class="theme-btn">
-                <i class="ri-moon-line"></i>
-            </button>
-
-            <button class="notify-btn">
-                <i class="ri-notification-3-line"></i>
-            </button>
-
-            <div class="profile">
-                AK
-            </div>
+                            <span>✕</span>
 
         </div>
 
-    </header>
+    </div>
 
-    <!-- ================= BODY ================= -->
 
-    <div class="layout">
 
-        <!-- Sidebar -->
+    <div class="workspace">
+
 
         <aside class="sidebar">
 
+            <h2>PAPER TERMINAL</h2>
+
             <nav>
 
-                <a class="active">
-                    <i class="ri-home-4-line"></i>
-                    <span>Workspace</span>
-                </a>
+                <a href="#" class="active">🏠 Dashboard</a>
 
-                <a>
-                    <i class="ri-task-line"></i>
-                    <span>Tasks</span>
-                </a>
+                <a href="#">📋 Task Manager</a>
 
-                <a>
-                    <i class="ri-code-box-line"></i>
-                    <span>Inspector</span>
-                </a>
+                <a href="#">🌳 DOM Explorer</a>
 
-                <a>
-                    <i class="ri-flow-chart"></i>
-                    <span>Rendering</span>
-                </a>
+                <a href="#">⚡ Event Playground</a>
 
-                <a>
-                    <i class="ri-git-branch-line"></i>
-                    <span>Events</span>
-                </a>
+                <a href="#">🖥 Browser Rendering</a>
 
-                <a>
-                    <i class="ri-terminal-box-line"></i>
-                    <span>Console</span>
-                </a>
-
-                <a>
-                    <i class="ri-settings-3-line"></i>
-                    <span>Settings</span>
-                </a>
+                <a href="#">⚙ Settings</a>
 
             </nav>
 
         </aside>
 
-        <!-- Workspace -->
 
-        <main class="workspace">
+        <main>
 
-            <div class="placeholder">
+<header>
 
-                <i class="ri-code-s-slash-line"></i>
+    <h1>Dashboard</h1>
 
-                <h1>DOM Explorer</h1>
+    <div class="header-actions">
 
-                <p>
-                    Select a module from the sidebar to begin exploring.
-                </p>
+        <div class="search-box">
 
-            </div>
+            <i class="ri-search-line"></i>
 
-        </main>
+            <input
+                id="search"
+                type="text"
+                placeholder="Search Tasks..."
+            >
 
-        <!-- Inspector -->
+        </div>
 
-        <aside class="inspector">
+    <button id="themeToggle" class="theme-toggle">
+    <i class="ri-moon-clear-line"></i>
+</button>
+    </div>
 
-            <h3>Inspector</h3>
+</header>
 
-            <div class="card">
-                <p>Selected Element</p>
-            </div>
+            <section class="stats">
 
-            <div class="card">
-                <p>Attributes</p>
-            </div>
+ <div class="card">
 
-            <div class="card">
-                <p>Properties</p>
-            </div>
+    <h3>Total Tasks</h3>
 
-            <div class="card">
-                <p>Dataset</p>
-            </div>
+    <span class="number" id="totalTask">0</span>
 
-        </aside>
+    <p>All Created Tasks</p>
+
+</div>
+
+<div class="card">
+
+    <h3>Pending Tasks</h3>
+
+    <span class="number" id="pendingTask">0</span>
+
+    <p>Awaiting Completion</p>
+
+</div>
+
+<div class="card">
+
+    <h3>Completed Tasks</h3>
+
+    <span class="number" id="completedTask">0</span>
+
+    <p>Finished Successfully</p>
+
+</div>
+
+<div class="card">
+
+    <h3>DOM Nodes</h3>
+
+    <span class="number" id="domNode">0</span>
+
+    <p>Elements Generated</p>
+
+</div>
+
+            </section>
+            <div class="progress-card">
+
+    <div class="progress-header">
+
+        <h3>Overall Progress</h3>
+
+        <span id="progressPercent">0%</span>
 
     </div>
 
-    <!-- ================= CONSOLE ================= -->
+    <div class="progress-bar">
 
-    <footer class="console">
+        <div id="progressFill"></div>
 
-        <div class="console-header">
-            <h4>Activity Log</h4>
+    </div>
+
+    <p id="progressText">0 / 0 Tasks Completed</p>
+
+</div>
+
+
+           <section class="dashboard-layout">
+
+ 
+
+    <div class="window-card">
+
+        <div class="window-header">
+
+            <h2>📋 TASK MANAGER</h2>
+
+            <div class="controls">
+                <button>—</button>
+                <button>□</button>
+                <button>✕</button>
+            </div>
+
         </div>
 
-        <div class="console-body">
+       <div class="window-body">
 
-            <p>Application Initialized...</p>
+    <form 
+    id="taskForm"
+    class="task-form">
+
+        <div class="input-group">
+
+            <label for="title">Task Title</label>
+
+            <input
+                id="title"
+                type="text"
+                placeholder="Enter task title..."
+            >
 
         </div>
 
-    </footer>
+        <div class="row">
+
+            <div class="input-group">
+
+                <label for="category">Category</label>
+
+                <select id="category">
+
+                    <option>Study</option>
+                    <option>Project</option>
+                    <option>Personal</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="priority">Priority</label>
+
+                <select id="priority">
+
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="date">Due Date</label>
+
+            <input
+                id="date"
+                type="date"
+            >
+
+        </div>
+
+        <button type="submit" class="add-btn">
+
+            + ADD TASK
+
+        </button>
+
+    </form>
+
+    </form>
+
+<div class="filter-btns">
+
+    <button class="filter active" data-filter="all">
+        All
+    </button>
+
+    <button class="filter" data-filter="pending">
+        Pending
+    </button>
+
+    <button class="filter" data-filter="completed">
+        Completed
+    </button>
+    <select id="sortTasks">
+
+    <option value="default">Sort By</option>
+
+    <option value="newest">Newest</option>
+
+    <option value="oldest">Oldest</option>
+
+    <option value="high">High Priority</option>
+
+    <option value="medium">Medium Priority</option>
+
+    <option value="low">Low Priority</option>
+
+    <option value="az">A - Z</option>
+
+    <option value="za">Z - A</option>
+
+</select>
+
+</div>
+<div class="task-actions">
+
+    <button id="exportTasks" class="action-btn">
+        <i class="ri-download-2-line"></i>
+        Export
+    </button>
+
+    <label for="importTasks" class="action-btn">
+        <i class="ri-upload-2-line"></i>
+        Import
+    </label>
+
+    <input
+        type="file"
+        id="importTasks"
+        accept=".json"
+        hidden
+    >
+
+</div>
+    <h3 id="taskHeading">Recent Tasks</h3>
+
+<div id="taskList" class="task-list">
+
+
+</div>
+
+    </div>
+    </div>
+
+
+
+    <div class="window-card">
+
+        <div class="window-header">
+
+            <h2>🌳 DOM INSPECTOR</h2>
+
+            <div class="controls">
+                <button>—</button>
+                <button>□</button>
+                <button>✕</button>
+            </div>
+
+        </div>
+
+        <div class="window-body">
+
+            <div class="inspector">
+
+                <h3>Selected Element</h3>
+
+                <hr>
+
+   <p>
+    <span>Tag</span>
+    <strong id="tagName">--</strong>
+</p>
+
+<p>
+    <span>ID</span>
+    <strong id="elementId">--</strong>
+</p>
+
+<p>
+    <span>Class</span>
+    <strong id="className">--</strong>
+</p>
+
+<p>
+    <span>data-status</span>
+    <strong id="statusData">--</strong>
+</p>
+
+<p>
+    <span>data-category</span>
+    <strong id="categoryData">--</strong>
+</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+            
+
+            <section class="playground-layout">
+
+                <div class="window-card">
+
+                    <div class="window-header">
+
+                        <h2>⚡ DOM PLAYGROUND</h2>
+
+                        <div class="controls">
+
+                            <button>—</button>
+
+                            <button>□</button>
+
+                            <button>✕</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="window-body">
+<div class="playground-controls">
+
+    <button id="createBox">+ Create Box</button>
+
+    <button id="removeBox">- Remove Box</button>
+
+<button id="editBox">
+    <i class="ri-edit-line"></i> Edit
+</button>
+
+<button id="colorBox">
+    <i class="ri-palette-line"></i> Color
+</button>
+
+    <button id="cloneBox"> Clone</button>
+
+    <button id="clearBox"> Clear</button>
+
+</div>
+
+
+<div id="playgroundArea"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
 
 </div>
 
